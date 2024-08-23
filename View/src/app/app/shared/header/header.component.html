@@ -1,0 +1,30 @@
+
+<header class="bg-dark" style="height: 15vh; min-height: 50px;">
+    <div class="d-flex justify-content-between align-items-center h-100 px-4">
+        <a class="logo btn" (click)="navigateTo('')" style="width: auto; height: 50%">
+            <img src="/assets/sun.png" alt="logo" class="img-fluid" style="width: 100%; height: 100%">
+        </a>
+
+      <!-- Static navbar -->
+        <div div class="menu-toggle" id="menu-toggle" (click)="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <div class="nav" id="nav" [ngClass]="{'active': isMenuActive}">
+            <ul class="nav d-flex align-items-center justify-content-between ">
+                <li><a class="active text-white me-4 yellow-decor" (click)="navigateTo('about-us')">About us</a></li>
+                <li><a class="text-white me-4 yellow-decor" (click)="navigateTo('cars')">See all Cars</a></li>
+                <li><a class="text-white me-4 yellow-decor" (click)="navigateTo('garage')">Garage</a></li>
+            </ul>
+        </div>
+        
+        <div class="d-flex align-items-center">
+            <a class="text-white me-3 yellow-decor" (click)="navigateTo('login')">Log in</a>
+            <a class="btn btn-outline-success text-white rounded" (click)="navigateTo('registration')" style="border-radius: 20px;">Sign up</a>
+        </div>
+
+    </div>
+</header>
+

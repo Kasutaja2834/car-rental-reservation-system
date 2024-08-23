@@ -1,0 +1,67 @@
+@media screen and (max-width: 768px) {
+    .column {
+        flex-direction: column;
+    }
+
+    .firm {
+        display: none;
+    }
+
+    .banner {
+        display: none;
+    }
+
+    .customer {
+        margin-top: auto;
+        min-width: 100%;
+    }
+
+    .business {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .custom-col {
+        width: 40%; 
+    }
+    
+}
+
+@media screen and (min-width: 769px) {
+    .customer {
+       min-width: 380px;
+    }
+}
+
+.home-bg {
+    position: relative;
+    background-image: url('/assets/see.jpg'); 
+    background-size: cover; 
+    background-position: center;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue; 
+    border: 2px solid green; 
+    border-radius: 20px; 
+    background-color: rgba(240, 248, 255, 0.7);
+}
+
+.table-text {
+    max-width: 350px;
+    text-align: center;
+    font-style: italic;
+    color: green;
+}
+
+.business {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+}
+

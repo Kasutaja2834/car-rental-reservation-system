@@ -1,0 +1,31 @@
+<div class="d-flex flex-column min-vh-100">
+    <!-- Header-->
+    <app-header></app-header>
+
+    <div class="flex-fill home-bg p-4 d-flex flex-column">
+        <!-- Customer -->
+        <div class="col-md-4 customer">
+            <div class="table p-5">
+                <h2 class="table-text mb-4">Rental cars. Your way.</h2>
+                <div class="d-flex justify-content-center align-items-center flex-column">
+
+                 <!-- Data-Picker -->
+                    <app-datepicker-range-popup (dateRangeSelected)="onDateRangeSelected($event)"></app-datepicker-range-popup>
+                    <a class="btn btn-success w-100 mt-3" (click)="navigateTo('registration')">GO</a>
+                </div>
+            </div>             
+        </div>
+
+        <!-- Business -->
+        <div class="col-md-3 custom-col ml-auto business">
+            <div class="table firm p-5 mt-5">  
+                <h3 class="table-text mb-4">If you're a business, you've come to the right place!</h3>
+                <a class="btn btn-success w-100" (click)="navigateTo('registration')">Open Office</a>
+            </div>    
+        </div> 
+    </div>
+
+    <!-- Footer-->
+    <app-footer></app-footer>
+
+</div>
