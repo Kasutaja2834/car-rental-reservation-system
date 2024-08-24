@@ -8,4 +8,5 @@ import org.sta.crrs.car_rental_reservation_system.models.security.Roles;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
     boolean existsByName(Roles name);
+    Role findRoleByName(Roles name);
 }

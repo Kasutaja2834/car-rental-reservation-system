@@ -1,5 +1,6 @@
 package org.sta.crrs.car_rental_reservation_system.models.customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -44,16 +45,39 @@ public class Customer {
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @ManyToOne
+    @ManyToOne //many customers have the same role
     @JoinColumn(name = "role_id")
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    List<Reservation>  reservation;
+    List<Reservation> reservation;
 
-    @OneToMany
-    List<Licence> licence; //Driving licence and right to drive
+    @OneToMany //one customer can have different rights
+    @JoinTable(
+            name = "customer_licence",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "licence_id")
+//            uniqueConstraints = @UniqueConstraint(columnNames = {"customer_id", "licence_id"})
+    )
+     @Enumerated(EnumType.STRING)
+
+    List<Licence> licence; //Driving licences and rights to drive
+
+//    @PrePersist
+//    private void setDefaults() {
+//        if (role == null) {
+//            role = new Role();
+//            role.setName(Roles.ROLE_INCOGNITO);
+//        }
+//        if (licence == null || licence.isEmpty()) {
+//            Licence defaultLicence = new Licence();
+//            defaultLicence.setCategory(Categories.B_SOIDUAUTO);
+//            defaultLicence.setValid(true);
+//            licence = List.of(defaultLicence);
+//        }
+//    }
 }
 //Address search bar without a map Only the address search box is displayed. In this mode only address-based search is enabled.
 //interface http://inaadress.maaamet.ee/inaadress

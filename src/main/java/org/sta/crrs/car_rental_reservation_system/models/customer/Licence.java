@@ -11,13 +11,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Licence {
 
-    @jakarta.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
 
+    @Column( nullable = false, columnDefinition = "VARCHAR(20) default 'B_SOIDUAUTO'")//name="category",
+   // @Column(length = 20)
     @Enumerated(EnumType.STRING)
-    private Category category;
+    private Categories category;
 
-    @Column(columnDefinition = "boolean default false")
+    @Column(columnDefinition = "boolean default true")
     private Boolean valid;
+
+//    @ManyToOne //many rights can have one customer
+//    private Licence licence;
 }

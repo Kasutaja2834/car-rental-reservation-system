@@ -1,4 +1,4 @@
-package org.sta.crrs.car_rental_reservation_system.Controllers.RentalOfficeController;
+package org.sta.crrs.car_rental_reservation_system.controllers.RentalOfficeController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

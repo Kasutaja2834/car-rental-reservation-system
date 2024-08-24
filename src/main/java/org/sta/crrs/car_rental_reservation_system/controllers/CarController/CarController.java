@@ -1,4 +1,4 @@
-package org.sta.crrs.car_rental_reservation_system.Controllers.CarController;
+package org.sta.crrs.car_rental_reservation_system.controllers.CarController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +29,6 @@ public class CarController {
 
     @PostMapping("/{branchId}/car/add")
     public ResponseEntity<?> addCar(@RequestBody Car car, @PathVariable Long branchId) {
-
         if (branchServices.existRentalOfficeBranchById(branchId)) {
             Branch branch = branchServices.findBranchById(branchId);
             car.setBranch(branch);
